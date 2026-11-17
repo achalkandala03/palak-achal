@@ -117,12 +117,13 @@ h2 {
 /* ----- the curtain reveal -----
    0.0-0.9s  the doors slide fully open onto closed ivory curtains
    0.95-3.4s they flow apart in one continuous movement and gather into the tied-back drapes
-   3.2-3.9s  they hand over to those drapes drawn in the scene; the names and date rise in
+   2.6-3.9s  the blossom branches grow in from the bottom corners, in front of the curtains
+   3.0-3.8s  the curtains melt into the drapes drawn in the scene; the names and date rise in
    Each curtain is cut into thin horizontal strips (built in app.js). Every strip gathers toward the
    outer edge by its own amount, so together they bend into the drape's curve: pinched at the tie-back,
    flaring below it, sweeping up to the valance. Strips near the tie-back move a moment before the top
    and hem, so the fabric flows rather than sliding as one flat panel. */
-.curtains { transition: opacity .35s ease 3.35s; }
+.curtains { transition: opacity .8s ease 3s; }
 .curtain-side {
   position: absolute; top: 0; width: 50%; height: 100%;
   filter: drop-shadow(0 0 14px rgba(70, 50, 30, .38));  /* shadow under the moving edge */
@@ -140,6 +141,24 @@ h2 {
 @keyframes curtain-draw {
   from { transform: scaleX(1); }
   to   { transform: scaleX(var(--s)); }
+}
+/* The blossom branches at the foot of the scene sit in front of the drapes. A copy of the scene,
+   masked to the two bottom corners, grows outward from each corner over the gathering curtains, so the
+   flowers bloom into view instead of appearing when the curtains hand over. */
+.blossoms {
+  pointer-events: none;
+  --bloom: radial-gradient(farthest-side at 0 100%, #000 72%, transparent);
+  --bloom-r: radial-gradient(farthest-side at 100% 100%, #000 72%, transparent);
+  -webkit-mask-image: var(--bloom), var(--bloom-r);
+  mask-image: var(--bloom), var(--bloom-r);
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: 0 100%, 100% 100%; mask-position: 0 100%, 100% 100%;
+  -webkit-mask-size: 0 0, 0 0; mask-size: 0 0, 0 0;
+}
+.hero.open .blossoms { animation: bloom 1.3s cubic-bezier(.25, .6, .3, 1) 2.6s both; }
+@keyframes bloom {
+  from { -webkit-mask-size: 0 0, 0 0; mask-size: 0 0, 0 0; }
+  to   { -webkit-mask-size: 46% 30%, 46% 30%; mask-size: 46% 30%, 46% 30%; }
 }
 .valance {
   pointer-events: none;
@@ -184,7 +203,7 @@ h2 {
 .hero.open .curtains { opacity: 0; }
 .hero.open .hero-text { opacity: 1; transform: none; }
 .hero.open .monogram { opacity: 0; }
-.hero.done .curtains, .hero.done .valance { display: none; }
+.hero.done .curtains, .hero.done .valance, .hero.done .blossoms { display: none; }
 .hero.open .scroll-cue { opacity: 1; }
 .hero.done .doors { display: none; }
 
@@ -357,6 +376,7 @@ h2 {
   .hero.open .door-left, .hero.open .door-right { transform: none; opacity: 0; }
   .curtains { transition: opacity .7s ease .4s; }
   .hero.open .curtain-strip { animation: none; }
+  .blossoms { display: none; }
   .hero-text { transform: none; transition: opacity .8s ease 1s; }
   .scroll-cue { transition: opacity .8s ease 1s; }
   .scroll-cue::after, .tap-hint { animation: none; }
