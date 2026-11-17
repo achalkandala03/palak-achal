@@ -69,6 +69,8 @@ window.WEDDING = {
       title: 'Haldi',
       glance: 'Haldi',
       optional: false,
+      scene: 'art/scene-haldi.webp',
+      sceneAlt: 'Embroidered illustration of a haldi set-up on a sunny patio: a low wooden stool draped in yellow before strands of marigold garlands, brass bowls of turmeric paste and a marigold rangoli',
       venue: 'Suri House',
       note: 'At Palak’s parents’ home. A small, close-knit morning; the address is shared with invited guests directly.',
       events: [{ time: '10:00 AM', name: 'Haldi' }],
@@ -135,7 +137,7 @@ window.WEDDING = {
       events: [
         { time: '3:00 PM', name: 'Baraat', icon: 'art/icon-baraat.webp' },
         { time: '4:00–5:30 PM', name: 'Wedding ceremony', icon: 'art/icon-ceremony.webp' },
-        { time: '5:30–6:00 PM', name: 'Photos' },
+        { time: '5:30–6:00 PM', name: 'Photos', icon: 'art/icon-photos.webp' },
         { time: '6:00–7:30 PM', name: 'Cocktail hour', icon: 'art/icon-cocktail.webp' },
         { time: '7:30 PM–12:30 AM', name: 'Reception', icon: 'art/icon-reception.webp' },
       ],
