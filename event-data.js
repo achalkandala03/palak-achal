@@ -1,0 +1,156 @@
+// Single source of truth for every date, time, venue, address and dress code
+// on the site (mirrors the "Event details" table in the PRD). Change it here once.
+// All times are Eastern (EDT, UTC-4).
+window.WEDDING = {
+  couple: { first: 'Palak', second: 'Achal' }, // always in this order
+  hosts: 'The Suri Family and The Kandala Family',
+  weddingDateLabel: 'August 27, 2027',
+  welcome: 'We can’t wait to celebrate with the people we love most.',
+
+  // Invite links: each code shows only the days listed for it. Send a guest the site's link with
+  // #code on the end, for example  https://<site address>/#celebrate-k4m8
+  // A link with no code (or a code not listed here) shows `defaultInvite`.
+  // To add a group, add a line with a new code; keep a random ending so codes can't be guessed.
+  // This hides events from view; it does not lock them. Anyone who reads this file can see every
+  // code, so don't rely on it for anything secret.
+  invites: {
+    'weekend-p7r2': { label: 'Full weekend', days: ['day1', 'day2', 'day3'] },
+    'celebrate-k4m8': { label: 'Sangeet and wedding', days: ['day1', 'day2'] },
+    'wedding-x9d3': { label: 'Wedding day only', days: ['day2'] },
+  },
+  defaultInvite: 'celebrate-k4m8',
+
+  // Countdown target: the wedding ceremony.
+  countdownTarget: '2027-08-27T16:00:00-04:00',
+
+  rsvp: {
+    deadlineLabel: 'June 1, 2027',
+    closesAt: '2027-06-01T23:59:59-04:00',
+    // Paste the Google Apps Script web-app URL here (see README.md).
+    // While empty, the form runs in preview mode and saves nothing.
+    endpoint: '',
+  },
+
+  hotel: {
+    name: 'Envue, Autograph Collection',
+    url: 'https://www.marriott.com/en-us/hotels/lgaaw-envue-autograph-collection/overview/',
+    address: '550 Avenue at Port Imperial, Weehawken, NJ 07086',
+    locationNote:
+      'Envue is in Weehawken, New Jersey, across the Hudson from Midtown Manhattan (not in Manhattan itself). Please plan flights and rides with that in mind.',
+    bookingUrl: '', // paste the room-block link here to switch the button on
+  },
+
+  contact: '', // e.g. 'Email us at hello@example.com'. Empty shows "coming soon".
+
+  // Artwork (phase 2 embroidered images). The phase 1 SVG of each piece is still in /art
+  // under the same name; change .webp back to .svg on a line to use it.
+  art: {
+    doorLeft: 'art/door-left.webp',
+    doorRight: 'art/door-right.webp',
+    curtainLeft: 'art/curtain-left.webp?v=2',
+    curtainRight: 'art/curtain-right.webp?v=2',
+    sceneHero: 'art/scene-hero.webp?v=4',
+    roses: 'art/floral-roses.webp',
+    wisteria: 'art/wisteria.webp',
+    divider: 'art/divider-pearls.webp',
+    medallion: 'art/medallion.webp',
+  },
+
+  days: [
+    {
+      id: 'day1',
+      label: 'Day 1',
+      weekday: 'Thursday',
+      dateLabel: 'August 26',
+      shortDate: 'Thu, Aug 26',
+      title: 'Arrival & Sangeet',
+      glance: 'Arrival & Sangeet',
+      optional: false,
+      scene: 'art/scene-envue.webp?v=2',
+      sceneAlt: 'Embroidered illustration of the Envue rooftop at night, with string lights and the Manhattan skyline across the river',
+      venue: 'Envue, Autograph Collection',
+      venueUrl: 'https://www.marriott.com/en-us/hotels/lgaaw-envue-autograph-collection/overview/',
+      address: '550 Avenue at Port Imperial, Weehawken, NJ 07086',
+      mapsQuery: 'Envue, Autograph Collection, 550 Avenue at Port Imperial, Weehawken, NJ 07086',
+      note: 'Envue is in Weehawken, New Jersey, across the Hudson from Midtown Manhattan (not in Manhattan itself).',
+      dressCode: 'Indo-Western',
+      dressArt: 'art/dress-indo-western.webp',
+      events: [
+        { time: 'From 4:00 PM', name: 'Arrival and hotel check-in', place: 'Envue, Autograph Collection' },
+        { time: '7:00 PM', name: 'Sangeet', place: 'Envue Rooftop' },
+      ],
+      rsvpLabel: 'Day 1: Sangeet',
+      rsvpDate: 'Thu, Aug 26',
+      calendar: {
+        title: 'Palak & Achal: Sangeet',
+        start: '2027-08-26T19:00',
+        end: '2027-08-26T23:00', // end time not confirmed yet (assumed)
+        location: 'Envue Rooftop, Envue, Autograph Collection, 550 Avenue at Port Imperial, Weehawken, NJ 07086',
+        description: 'Sangeet on the Envue Rooftop at 7:00 PM. Hotel check-in from 4:00 PM. Dress code: Indo-Western.',
+      },
+    },
+    {
+      id: 'day2',
+      label: 'Day 2',
+      weekday: 'Friday',
+      dateLabel: 'August 27',
+      shortDate: 'Fri, Aug 27',
+      title: 'The Wedding',
+      glance: 'The Wedding',
+      optional: false,
+      timeline: true,
+      scene: 'art/scene-rockleigh.webp?v=2',
+      sceneAlt: 'Embroidered illustration of the stone colonnade in The Rockleigh’s garden, dressed as a mandap, with an aisle and rows of white chairs',
+      venue: 'The Rockleigh',
+      venueUrl: 'https://therockleigh.net/',
+      address: '26 Paris Avenue, Rockleigh, NJ 07647',
+      mapsQuery: 'The Rockleigh, 26 Paris Avenue, Rockleigh, NJ 07647',
+      dressCode: 'Traditional Indian',
+      dressArt: 'art/dress-traditional.webp',
+      events: [
+        { time: '3:00 PM', name: 'Baraat', icon: 'art/icon-baraat.webp' },
+        { time: '4:00 PM', name: 'Wedding ceremony', icon: 'art/icon-ceremony.webp' },
+        { time: '6:00 PM', name: 'Cocktail hour', icon: 'art/icon-cocktail.webp' },
+        { time: '7:00 PM', name: 'Reception', icon: 'art/icon-reception.webp' },
+      ],
+      rsvpLabel: 'Day 2: Wedding & Reception',
+      rsvpDate: 'Fri, Aug 27',
+      calendar: {
+        title: 'Palak & Achal: The Wedding',
+        start: '2027-08-27T15:00',
+        end: '2027-08-27T23:00', // reception end time not confirmed yet (assumed)
+        location: 'The Rockleigh, 26 Paris Avenue, Rockleigh, NJ 07647',
+        description:
+          '3:00 PM Baraat\n4:00 PM Wedding ceremony\n6:00 PM Cocktail hour\n7:00 PM Reception\nDress code: Traditional Indian.',
+      },
+    },
+    {
+      id: 'day3',
+      label: 'Day 3',
+      weekday: 'Saturday',
+      dateLabel: 'August 28',
+      shortDate: 'Sat, Aug 28',
+      title: 'Park Day',
+      glance: 'Park Day',
+      optional: true,
+      scene: 'art/scene-park.webp?v=2',
+      sceneAlt: 'Embroidered illustration of a picnic on Sheep Meadow in Central Park, with the city skyline behind the trees',
+      venue: 'Sheep Meadow, Central Park',
+      address: 'Sheep Meadow, Central Park, New York, NY',
+      mapsQuery: 'Sheep Meadow, Central Park, New York, NY',
+      note: 'Exact meeting point and entrance to come.',
+      dressCode: 'Casual',
+      dressArt: 'art/dress-casual.webp',
+      events: [{ time: '2:00 PM', name: 'Park Day' }],
+      rsvpLabel: 'Day 3: Park Day',
+      rsvpDate: 'Sat, Aug 28, optional',
+      calendar: {
+        title: 'Palak & Achal: Park Day',
+        start: '2027-08-28T14:00',
+        end: '2027-08-28T17:00', // end time not confirmed yet (assumed)
+        location: 'Sheep Meadow, Central Park, New York, NY',
+        description: 'An optional, casual afternoon at Sheep Meadow, Central Park. Dress code: Casual.',
+      },
+    },
+  ],
+};

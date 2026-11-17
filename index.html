@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Palak &amp; Achal · August 27, 2027</title>
+  <meta name="description" content="Join us for the wedding weekend of Palak &amp; Achal, August 26–28, 2027.">
+  <meta name="theme-color" content="#8A9A7B">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Cormorant+SC:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="art/door-left.webp">
+  <link rel="preload" as="image" href="art/door-right.webp">
+  <link rel="stylesheet" href="styles.css?v=12">
+  <script>document.documentElement.classList.add('js', 'locked');</script>
+</head>
+<body>
+<main class="page">
+
+  <!-- 1 + 2. Opening and hero -->
+  <header class="hero" id="hero">
+    <img class="hero-scene stage-layer" data-art="sceneHero" src="art/scene-hero.webp?v=4" width="864" height="1864"
+         alt="Embroidered illustration of The Rockleigh’s courtyard: the low brick building with its white centre, a rectangular pool with five fountains, fire bowls and a stone path, framed by ivory curtains trimmed with pearls">
+    <div class="hero-text">
+      <p class="label hero-label">The wedding of</p>
+      <h1><span data-bind="couple.first">Palak</span> <span class="amp">&amp;</span> <span data-bind="couple.second">Achal</span></h1>
+      <p class="hero-date" data-bind="weddingDateLabel">August 27, 2027</p>
+    </div>
+    <a class="scroll-cue" href="#welcome" aria-label="Scroll to the welcome note"><span>Scroll</span></a>
+    <div class="curtains stage-layer" aria-hidden="true">
+      <div class="curtain-side left" data-curtain="curtainLeft"></div>
+      <div class="curtain-side right" data-curtain="curtainRight"></div>
+    </div>
+    <link rel="preload" as="image" href="art/curtain-left.webp?v=2">
+    <link rel="preload" as="image" href="art/curtain-right.webp?v=2">
+    <img class="valance stage-layer" data-art="sceneHero" src="art/scene-hero.webp?v=4" width="864" height="1864" alt="">
+    <button class="doors" id="doors" type="button" aria-label="Open the invitation">
+      <img class="door door-left" data-art="doorLeft" src="art/door-left.webp" width="432" height="1864" alt="">
+      <img class="door door-right" data-art="doorRight" src="art/door-right.webp" width="432" height="1864" alt="">
+      <span class="monogram" aria-hidden="true"><span data-initial="first">P</span><span class="amp">&amp;</span><span data-initial="second">A</span></span>
+      <span class="tap-hint">Tap to open</span>
+    </button>
+  </header>
+
+  <!-- 3. Welcome -->
+  <section class="section" id="welcome">
+    <img class="floral reveal" data-art="roses" src="art/floral-roses.webp" width="400" height="110" alt="A garland of dusty-rose roses">
+    <p class="label reveal">Welcome</p>
+    <p class="welcome-note reveal" data-bind="welcome">We can’t wait to celebrate with the people we love most.</p>
+    <img class="divider reveal" data-art="divider" src="art/divider-pearls.webp" width="300" height="24" alt="">
+  </section>
+
+  <!-- 4. Countdown -->
+  <section class="section panel" id="countdown">
+    <p class="label reveal">Counting down to the ceremony</p>
+    <div class="medallions reveal" id="medallions" role="timer" aria-live="off">
+      <div class="medallion"><img data-art="medallion" src="art/medallion.webp" width="140" height="140" alt=""><span class="num" id="cd-days">–</span><span class="unit">Days</span></div>
+      <div class="medallion"><img data-art="medallion" src="art/medallion.webp" width="140" height="140" alt=""><span class="num" id="cd-hours">–</span><span class="unit">Hours</span></div>
+      <div class="medallion"><img data-art="medallion" src="art/medallion.webp" width="140" height="140" alt=""><span class="num" id="cd-mins">–</span><span class="unit">Minutes</span></div>
+    </div>
+    <p class="today reveal" id="cd-today" hidden>Today’s the day</p>
+  </section>
+
+  <!-- 5. Invitation -->
+  <section class="section" id="invitation">
+    <p class="invite-hosts reveal" data-bind="hosts">The Suri Family and The Kandala Family</p>
+    <p class="label reveal">invite you to celebrate the wedding of</p>
+    <h2 class="invite-names reveal"><span data-bind="couple.first">Palak</span> <span class="amp">&amp;</span> <span data-bind="couple.second">Achal</span></h2>
+    <img class="divider reveal" data-art="divider" src="art/divider-pearls.webp" width="300" height="24" alt="">
+    <p class="invite-dates reveal" id="invite-dates">August 26–27, 2027</p>
+  </section>
+
+  <!-- 6. Weekend at a glance -->
+  <section class="section panel" id="glance">
+    <p class="label reveal">The weekend at a glance</p>
+    <nav class="glance reveal" id="glance-cards" aria-label="Jump to a day"></nav>
+  </section>
+
+  <!-- 7–9. Day sections (built from event-data.js) -->
+  <div id="days"></div>
+
+  <!-- 10. Stay -->
+  <section class="section panel stay" id="stay">
+    <img class="floral wisteria reveal" data-art="wisteria" src="art/wisteria.webp" width="400" height="150" alt="Hanging wisteria blossoms">
+    <p class="label reveal">Where to stay</p>
+    <h2 class="reveal">Our room block at Envue</h2>
+    <p class="venue reveal"><a id="hotel-link" href="#" target="_blank" rel="noopener"></a><br><span id="hotel-address"></span></p>
+    <p class="note reveal" id="hotel-note"></p>
+    <div class="actions reveal" id="hotel-actions"></div>
+  </section>
+
+  <!-- 11. RSVP -->
+  <section class="section" id="rsvp">
+    <img class="floral reveal" data-art="roses" src="art/floral-roses.webp" width="400" height="110" alt="A garland of dusty-rose roses">
+    <p class="label reveal">RSVP</p>
+    <h2 class="reveal">Will you join us?</h2>
+    <p class="deadline reveal">Kindly respond by <span data-bind="rsvp.deadlineLabel">June 1, 2027</span></p>
+
+    <form class="rsvp-form reveal" id="rsvp-form" novalidate>
+      <div class="field">
+        <label for="f-name">Your full name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <p class="error" id="e-name" hidden>Please enter your full name.</p>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        <p class="error" id="e-email" hidden>Please enter a valid email address.</p>
+      </div>
+      <!-- spam trap: real guests never see or fill this -->
+      <div class="hp" aria-hidden="true">
+        <label for="f-website">Website</label>
+        <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div id="rsvp-days"></div>
+
+      <div id="plus-one-block">
+        <fieldset class="choice" id="fs-plusone">
+          <legend>Bringing a plus-one?</legend>
+          <div class="pills">
+            <label><input type="radio" name="plusOne" value="Yes"><span>Yes</span></label>
+            <label><input type="radio" name="plusOne" value="No"><span>No</span></label>
+          </div>
+          <p class="error" id="e-plusOne" hidden>Please choose Yes or No.</p>
+        </fieldset>
+        <div class="field" id="plus-one-name" hidden>
+          <label for="f-plusname">Plus-one’s full name</label>
+          <input id="f-plusname" name="plusOneName" type="text" autocomplete="off">
+          <p class="hint">Your plus-one joins you on every day you’re attending.</p>
+          <p class="error" id="e-plusOneName" hidden>Please enter your plus-one’s full name.</p>
+        </div>
+      </div>
+
+      <p class="error form-error" id="e-form" hidden role="alert"></p>
+      <button class="btn btn-primary" type="submit" id="rsvp-submit">Send RSVP</button>
+    </form>
+
+    <div class="rsvp-done" id="rsvp-done" hidden tabindex="-1">
+      <h3>Thank you, <span id="done-name"></span></h3>
+      <p id="done-lede"></p>
+      <dl id="done-summary"></dl>
+      <p class="note" id="done-note"></p>
+      <button class="btn" type="button" id="rsvp-again">Change my answers</button>
+    </div>
+
+    <p class="rsvp-closed" id="rsvp-closed" hidden>RSVPs are closed. Please contact us directly.</p>
+  </section>
+
+  <!-- 12. Footer -->
+  <footer class="footer">
+    <img class="divider" data-art="divider" src="art/divider-pearls.webp" width="300" height="24" alt="">
+    <p class="footer-names"><span data-bind="couple.first">Palak</span> <span class="amp">&amp;</span> <span data-bind="couple.second">Achal</span></p>
+    <p class="label" data-bind="weddingDateLabel">August 27, 2027</p>
+    <p class="footer-contact">Questions? <span id="contact">Contact details coming soon.</span></p>
+  </footer>
+
+</main>
+<script src="event-data.js?v=6"></script>
+<script src="app.js?v=12"></script>
+</body>
+</html>
