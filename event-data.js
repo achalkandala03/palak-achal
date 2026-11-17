@@ -14,6 +14,7 @@ window.WEDDING = {
   // This hides events from view; it does not lock them. Anyone who reads this file can see every
   // code, so don't rely on it for anything secret.
   invites: {
+    'haldi-f5n8': { label: 'Haldi and full weekend', days: ['haldi', 'day1', 'day2', 'day3'] },
     'weekend-p7r2': { label: 'Full weekend', days: ['day1', 'day2', 'day3'] },
     'celebrate-k4m8': { label: 'Sangeet and wedding', days: ['day1', 'day2'] },
     'wedding-x9d3': { label: 'Wedding day only', days: ['day2'] },
@@ -56,7 +57,31 @@ window.WEDDING = {
     medallion: 'art/medallion.webp',
   },
 
+  // A day can leave out scene, dressCode/dressArt, address/mapsQuery or an event's icon;
+  // the site then skips that part.
   days: [
+    {
+      id: 'haldi',
+      label: 'Day 1',
+      weekday: 'Thursday',
+      dateLabel: 'August 26',
+      shortDate: 'Thu, Aug 26',
+      title: 'Haldi',
+      glance: 'Haldi',
+      optional: false,
+      venue: 'Suri House',
+      note: 'At Palak’s parents’ home. A small, close-knit morning; the address is shared with invited guests directly.',
+      events: [{ time: '10:00 AM', name: 'Haldi' }],
+      rsvpLabel: 'Haldi',
+      rsvpDate: 'Thu, Aug 26, 10 AM',
+      calendar: {
+        title: 'Palak & Achal: Haldi',
+        start: '2027-08-26T10:00',
+        end: '2027-08-26T12:00', // end time not confirmed yet (assumed)
+        location: 'Suri House',
+        description: 'Haldi at Suri House, Palak’s parents’ home, at 10:00 AM.',
+      },
+    },
     {
       id: 'day1',
       label: 'Day 1',
@@ -77,16 +102,16 @@ window.WEDDING = {
       dressArt: 'art/dress-indo-western.webp',
       events: [
         { time: 'From 4:00 PM', name: 'Arrival and hotel check-in', place: 'Envue, Autograph Collection' },
-        { time: '7:00 PM', name: 'Sangeet', place: 'Envue Rooftop' },
+        { time: '7:00–11:00 PM', name: 'Sangeet', place: 'Envue Rooftop' },
       ],
       rsvpLabel: 'Day 1: Sangeet',
       rsvpDate: 'Thu, Aug 26',
       calendar: {
         title: 'Palak & Achal: Sangeet',
         start: '2027-08-26T19:00',
-        end: '2027-08-26T23:00', // end time not confirmed yet (assumed)
+        end: '2027-08-26T23:00',
         location: 'Envue Rooftop, Envue, Autograph Collection, 550 Avenue at Port Imperial, Weehawken, NJ 07086',
-        description: 'Sangeet on the Envue Rooftop at 7:00 PM. Hotel check-in from 4:00 PM. Dress code: Indo-Western.',
+        description: 'Sangeet on the Envue Rooftop, 7:00–11:00 PM. Hotel check-in from 4:00 PM. Dress code: Indo-Western.',
       },
     },
     {
@@ -109,19 +134,20 @@ window.WEDDING = {
       dressArt: 'art/dress-traditional.webp',
       events: [
         { time: '3:00 PM', name: 'Baraat', icon: 'art/icon-baraat.webp' },
-        { time: '4:00 PM', name: 'Wedding ceremony', icon: 'art/icon-ceremony.webp' },
-        { time: '6:00 PM', name: 'Cocktail hour', icon: 'art/icon-cocktail.webp' },
-        { time: '7:00 PM', name: 'Reception', icon: 'art/icon-reception.webp' },
+        { time: '4:00–5:30 PM', name: 'Wedding ceremony', icon: 'art/icon-ceremony.webp' },
+        { time: '5:30–6:00 PM', name: 'Photos' },
+        { time: '6:00–7:30 PM', name: 'Cocktail hour', icon: 'art/icon-cocktail.webp' },
+        { time: '7:30 PM–12:30 AM', name: 'Reception', icon: 'art/icon-reception.webp' },
       ],
       rsvpLabel: 'Day 2: Wedding & Reception',
       rsvpDate: 'Fri, Aug 27',
       calendar: {
         title: 'Palak & Achal: The Wedding',
         start: '2027-08-27T15:00',
-        end: '2027-08-27T23:00', // reception end time not confirmed yet (assumed)
+        end: '2027-08-28T00:30',
         location: 'The Rockleigh, 26 Paris Avenue, Rockleigh, NJ 07647',
         description:
-          '3:00 PM Baraat\n4:00 PM Wedding ceremony\n6:00 PM Cocktail hour\n7:00 PM Reception\nDress code: Traditional Indian.',
+          '3:00 PM Baraat\n4:00–5:30 PM Wedding ceremony\n5:30–6:00 PM Photos\n6:00–7:30 PM Cocktail hour\n7:30 PM–12:30 AM Reception\nDress code: Traditional Indian.',
       },
     },
     {

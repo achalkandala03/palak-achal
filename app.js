@@ -30,10 +30,10 @@
   (() => {
     const year = W.weddingDateLabel.slice(-4);
     const parts = W.days.map((d) => d.dateLabel.split(' ')); // ['August', '26']
-    const nums = parts.map((x) => +x[1]);
+    const nums = [...new Set(parts.map((x) => +x[1]))]; // Haldi and Sangeet share a date
     const contiguous = nums.every((n, i) => i === 0 || n === nums[i - 1] + 1);
     let label;
-    if (parts.length === 1) label = `${parts[0][0]} ${nums[0]}, ${year}`;
+    if (nums.length === 1) label = `${parts[0][0]} ${nums[0]}, ${year}`;
     else if (contiguous) label = `${parts[0][0]} ${nums[0]}–${nums[nums.length - 1]}, ${year}`;
     else label = `${parts[0][0]} ${nums.slice(0, -1).join(', ')} & ${nums[nums.length - 1]}, ${year}`;
     $('#invite-dates').textContent = label;
@@ -98,7 +98,7 @@
 
   // ---------- weekend at a glance ----------
   $('#glance').hidden = W.days.length < 2;
-  $('#glance-cards').style.setProperty('--n', String(W.days.length));
+  $('#glance-cards').style.setProperty('--n', String(W.days.length === 4 ? 2 : W.days.length)); // four cards sit 2 × 2
   $('#glance-cards').innerHTML = W.days.map((d) =>
     `<a href="#${d.id}"><span class="g-day">${esc(d.label)}</span><span class="g-date">${esc(d.shortDate)}</span>` +
     `<span class="g-title">${esc(d.glance)}</span>${d.optional ? '<span class="g-opt">Optional</span>' : ''}</a>`).join('');
@@ -108,7 +108,7 @@
     if (d.timeline) {
       return `<ol class="timeline" data-timeline><span class="pearl" aria-hidden="true"></span>` +
         d.events.map((e) =>
-          `<li><img src="${esc(e.icon)}" width="420" height="420" alt=""><div><p class="time">${esc(e.time)}</p><p class="name">${esc(e.name)}</p></div></li>`).join('') +
+          `<li>${e.icon ? `<img src="${esc(e.icon)}" width="420" height="420" alt="">` : '<span class="t-icon" aria-hidden="true"></span>'}<div><p class="time">${esc(e.time)}</p><p class="name">${esc(e.name)}</p></div></li>`).join('') +
         `</ol>`;
     }
     return `<ul class="schedule">` +
@@ -122,20 +122,20 @@
       : `<strong>${esc(d.venue)}</strong>`;
     return `
     <section class="section day${i % 2 ? ' panel' : ''}" id="${d.id}">
-      <img class="scene" src="${esc(d.scene)}" width="1280" height="704" loading="lazy" alt="${esc(d.sceneAlt)}">
+      ${d.scene ? `<img class="scene" src="${esc(d.scene)}" width="1280" height="704" loading="lazy" alt="${esc(d.sceneAlt)}">` : ''}
       <p class="label reveal">${esc(d.label)} · ${esc(d.weekday)}, ${esc(d.dateLabel)}</p>
       <h2 class="reveal">${esc(d.title)}</h2>
       ${d.timeline ? `<p class="venue-line reveal">at ${esc(d.venue)}</p>` : ''}
       ${d.optional ? `<p class="reveal"><span class="tag">Optional</span></p>` : ''}
       <div class="reveal">${schedule(d)}</div>
-      <div class="dress reveal">
-        <img src="${esc(d.dressArt)}" width="640" height="560" loading="lazy" alt="Embroidered illustration of two guests dressed in ${esc(d.dressCode)} attire">
+      ${d.dressCode ? `<div class="dress reveal">
+        ${d.dressArt ? `<img src="${esc(d.dressArt)}" width="640" height="560" loading="lazy" alt="Embroidered illustration of two guests dressed in ${esc(d.dressCode)} attire">` : ''}
         <div><p class="label">Dress code</p><p class="dress-name">${esc(d.dressCode)}</p></div>
-      </div>
-      <p class="venue reveal">${venue}<br>${esc(d.address)}</p>
+      </div>` : ''}
+      <p class="venue reveal">${venue}${d.address ? `<br>${esc(d.address)}` : ''}</p>
       ${d.note ? `<p class="note reveal">${esc(d.note)}</p>` : ''}
       <div class="actions reveal">
-        <a class="btn" href="${esc(mapsUrl(d.mapsQuery))}" target="_blank" rel="noopener">Open in Maps</a>
+        ${d.mapsQuery ? `<a class="btn" href="${esc(mapsUrl(d.mapsQuery))}" target="_blank" rel="noopener">Open in Maps</a>` : ''}
         <div class="cal">
           <button class="btn" type="button" aria-expanded="false" aria-controls="cal-${d.id}">Add to Calendar</button>
           <div class="cal-menu" id="cal-${d.id}" hidden>

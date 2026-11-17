@@ -283,7 +283,7 @@ h2 {
   border-radius: 50%; background: var(--cream); border: 1px solid var(--gold); transition: background .4s;
 }
 .timeline li.passed::before { background: var(--gold); }
-.timeline img { width: 64px; height: 64px; flex: none; }
+.timeline img, .timeline .t-icon { width: 64px; height: 64px; flex: none; }
 .timeline .pearl {
   position: absolute; left: 4px; top: -9px; width: 19px; height: 19px; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #fff, #F3EBE2 55%, #CDBFB1);
