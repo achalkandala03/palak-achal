@@ -100,7 +100,7 @@
   $('#glance').hidden = W.days.length < 2;
   $('#glance-cards').style.setProperty('--n', String(W.days.length === 4 ? 2 : W.days.length)); // four cards sit 2 × 2
   $('#glance-cards').innerHTML = W.days.map((d) =>
-    `<a href="#${d.id}"><span class="g-day">${esc(d.label)}</span><span class="g-date">${esc(d.shortDate)}</span>` +
+    `<a href="#${d.id}"><span class="g-day">${esc(d.shortDate)}</span><span class="g-date">${esc(d.when)}</span>` +
     `<span class="g-title">${esc(d.glance)}</span>${d.optional ? '<span class="g-opt">Optional</span>' : ''}</a>`).join('');
 
   // ---------- day sections ----------
@@ -123,7 +123,7 @@
     return `
     <section class="section day${i % 2 ? ' panel' : ''}" id="${d.id}">
       ${d.scene ? `<img class="scene" src="${esc(d.scene)}" width="1280" height="704" loading="lazy" alt="${esc(d.sceneAlt)}">` : ''}
-      <p class="label reveal">${esc(d.label)} · ${esc(d.weekday)}, ${esc(d.dateLabel)}</p>
+      <p class="label reveal"><span class="nw">${esc(d.weekday)}, ${esc(d.dateLabel)}</span> · <span class="nw">${esc(d.when)}</span></p>
       <h2 class="reveal">${esc(d.title)}</h2>
       ${d.timeline ? `<p class="venue-line reveal">at ${esc(d.venue)}</p>` : ''}
       ${d.optional ? `<p class="reveal"><span class="tag">Optional</span></p>` : ''}

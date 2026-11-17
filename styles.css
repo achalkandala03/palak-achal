@@ -215,6 +215,7 @@ h2 {
 .floral { width: 78%; margin: 0 auto 26px; }
 .divider { width: 220px; margin: 28px auto 0; }
 .section > .label { margin-bottom: 14px; }
+.label .nw { white-space: nowrap; }
 
 .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
 .js .reveal.in { opacity: 1; transform: none; }

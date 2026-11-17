@@ -62,7 +62,7 @@ window.WEDDING = {
   days: [
     {
       id: 'haldi',
-      label: 'Day 1',
+      when: 'Morning', // shown with the date instead of a day number
       weekday: 'Thursday',
       dateLabel: 'August 26',
       shortDate: 'Thu, Aug 26',
@@ -72,8 +72,8 @@ window.WEDDING = {
       scene: 'art/scene-haldi.webp',
       sceneAlt: 'Embroidered illustration of a haldi set-up on a sunny patio: a low wooden stool draped in yellow before strands of marigold garlands, brass bowls of turmeric paste and a marigold rangoli',
       venue: 'Suri House',
-      note: 'At Palak’s parents’ home. A small, close-knit morning; the address is shared with invited guests directly.',
-      events: [{ time: '10:00 AM', name: 'Haldi' }],
+      note: 'Palak’s parents’ home, where her story began. Come spend a sunny morning with our nearest and dearest, sharing turmeric, laughter and blessings before the celebrations begin. We’ll send you the address personally.',
+      events: [{ time: '10:00 AM', name: 'Turmeric, marigolds & blessings' }],
       rsvpLabel: 'Haldi',
       rsvpDate: 'Thu, Aug 26, 10 AM',
       calendar: {
@@ -86,7 +86,7 @@ window.WEDDING = {
     },
     {
       id: 'day1',
-      label: 'Day 1',
+      when: 'Evening',
       weekday: 'Thursday',
       dateLabel: 'August 26',
       shortDate: 'Thu, Aug 26',
@@ -106,7 +106,7 @@ window.WEDDING = {
         { time: 'From 4:00 PM', name: 'Arrival and hotel check-in', place: 'Envue, Autograph Collection' },
         { time: '7:00–11:00 PM', name: 'Sangeet', place: 'Envue Rooftop' },
       ],
-      rsvpLabel: 'Day 1: Sangeet',
+      rsvpLabel: 'Sangeet',
       rsvpDate: 'Thu, Aug 26',
       calendar: {
         title: 'Palak & Achal: Sangeet',
@@ -118,12 +118,12 @@ window.WEDDING = {
     },
     {
       id: 'day2',
-      label: 'Day 2',
+      when: 'Afternoon & evening',
       weekday: 'Friday',
       dateLabel: 'August 27',
       shortDate: 'Fri, Aug 27',
       title: 'The Wedding',
-      glance: 'The Wedding',
+      glance: 'Wedding & Reception',
       optional: false,
       timeline: true,
       scene: 'art/scene-rockleigh.webp?v=2',
@@ -141,7 +141,7 @@ window.WEDDING = {
         { time: '6:00–7:30 PM', name: 'Cocktail hour', icon: 'art/icon-cocktail.webp' },
         { time: '7:30 PM–12:30 AM', name: 'Reception', icon: 'art/icon-reception.webp' },
       ],
-      rsvpLabel: 'Day 2: Wedding & Reception',
+      rsvpLabel: 'Wedding & Reception',
       rsvpDate: 'Fri, Aug 27',
       calendar: {
         title: 'Palak & Achal: The Wedding',
@@ -154,7 +154,7 @@ window.WEDDING = {
     },
     {
       id: 'day3',
-      label: 'Day 3',
+      when: 'Afternoon',
       weekday: 'Saturday',
       dateLabel: 'August 28',
       shortDate: 'Sat, Aug 28',
@@ -170,7 +170,7 @@ window.WEDDING = {
       dressCode: 'Casual',
       dressArt: 'art/dress-casual.webp',
       events: [{ time: '2:00 PM', name: 'Park Day' }],
-      rsvpLabel: 'Day 3: Park Day',
+      rsvpLabel: 'Park Day',
       rsvpDate: 'Sat, Aug 28, optional',
       calendar: {
         title: 'Palak & Achal: Park Day',
