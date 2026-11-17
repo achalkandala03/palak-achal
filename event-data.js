@@ -101,7 +101,7 @@ window.WEDDING = {
       mapsQuery: 'Envue, Autograph Collection, 550 Avenue at Port Imperial, Weehawken, NJ 07086',
       note: 'Envue is in Weehawken, New Jersey, across the Hudson from Midtown Manhattan (not in Manhattan itself).',
       dressCode: 'Indo-Western',
-      dressArt: 'art/dress-indo-western.webp',
+      dressArt: 'art/dress-indo-western.webp?v=2',
       events: [
         { time: 'From 4:00 PM', name: 'Arrival and hotel check-in', place: 'Envue, Autograph Collection' },
         { time: '7:00–11:00 PM', name: 'Sangeet', place: 'Envue Rooftop' },
@@ -133,7 +133,7 @@ window.WEDDING = {
       address: '26 Paris Avenue, Rockleigh, NJ 07647',
       mapsQuery: 'The Rockleigh, 26 Paris Avenue, Rockleigh, NJ 07647',
       dressCode: 'Traditional Indian',
-      dressArt: 'art/dress-traditional.webp',
+      dressArt: 'art/dress-traditional.webp?v=2',
       events: [
         { time: '3:00 PM', name: 'Baraat', icon: 'art/icon-baraat.webp' },
         { time: '4:00–5:30 PM', name: 'Wedding ceremony', icon: 'art/icon-ceremony.webp' },
@@ -168,7 +168,7 @@ window.WEDDING = {
       mapsQuery: 'Sheep Meadow, Central Park, New York, NY',
       note: 'Exact meeting point and entrance to come.',
       dressCode: 'Casual',
-      dressArt: 'art/dress-casual.webp',
+      dressArt: 'art/dress-casual.webp?v=2',
       events: [{ time: '2:00 PM', name: 'Park Day' }],
       rsvpLabel: 'Park Day',
       rsvpDate: 'Sat, Aug 28, optional',

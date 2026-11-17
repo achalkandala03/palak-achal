@@ -129,7 +129,7 @@
       ${d.optional ? `<p class="reveal"><span class="tag">Optional</span></p>` : ''}
       <div class="reveal">${schedule(d)}</div>
       ${d.dressCode ? `<div class="dress reveal">
-        ${d.dressArt ? `<img src="${esc(d.dressArt)}" width="640" height="560" loading="lazy" alt="Embroidered illustration of two guests dressed in ${esc(d.dressCode)} attire">` : ''}
+        ${d.dressArt ? `<img src="${esc(d.dressArt)}" width="600" height="600" loading="lazy" alt="A gold-thread outline of a couple dressed in ${esc(d.dressCode)} attire">` : ''}
         <div><p class="label">Dress code</p><p class="dress-name">${esc(d.dressCode)}</p></div>
       </div>` : ''}
       <p class="venue reveal">${venue}${d.address ? `<br>${esc(d.address)}` : ''}</p>
