@@ -60,6 +60,12 @@
     if (src && el.getAttribute('src') !== src) el.src = src;
   });
 
+  // ---------- our story ----------
+  $('#story').hidden = !(W.story && W.story.length);
+  $('#story-list').innerHTML = (W.story || []).map((m) =>
+    `<li class="reveal"><p class="when">${esc(m.when)}</p><p class="what">${esc(m.text)}` +
+    `${m.quote ? ` <em>“${esc(m.quote)}”</em>` : ''}</p></li>`).join('');
+
   // ---------- maps + calendar helpers ----------
   const isApple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const mapsUrl = (q) =>

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Cormorant+SC:wght@500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="art/door-left.webp">
   <link rel="preload" as="image" href="art/door-right.webp">
-  <link rel="stylesheet" href="styles.css?v=16">
+  <link rel="stylesheet" href="styles.css?v=17">
   <script>document.documentElement.classList.add('js', 'locked');</script>
 </head>
 <body>
@@ -50,6 +50,13 @@
     <p class="label reveal">Welcome</p>
     <p class="welcome-note reveal" data-bind="welcome">We can’t wait to celebrate with the people we love most.</p>
     <img class="divider reveal" data-art="divider" src="art/divider-pearls.webp" width="300" height="24" alt="">
+  </section>
+
+  <!-- 3b. Our story (built from event-data.js) -->
+  <section class="section story-section" id="story">
+    <p class="label reveal">Our story</p>
+    <h2 class="reveal">How we got here</h2>
+    <ol class="story" id="story-list"></ol>
   </section>
 
   <!-- 4. Countdown -->
@@ -158,7 +165,7 @@
   </footer>
 
 </main>
-<script src="event-data.js?v=10"></script>
-<script src="app.js?v=16"></script>
+<script src="event-data.js?v=11"></script>
+<script src="app.js?v=17"></script>
 </body>
 </html>

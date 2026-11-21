@@ -21,6 +21,19 @@ window.WEDDING = {
   },
   defaultInvite: 'celebrate-k4m8',
 
+  // Our story: one line per moment, shown as a gold timeline under the welcome note.
+  // `quote` is optional and shows in italics after the text.
+  story: [
+    { when: 'Fall 2016', text: 'We matched on Tinder. Our first date ended with Scoops ice cream, a movie, and a borrowed jacket because it was cold.' },
+    { when: 'Spring 2017', text: 'A chat about Migos tickets for the spring concert brought us back together, and we had our first real date over tacos at Uncle Jose’s.' },
+    { when: 'Summer 2017', text: 'Miles apart, we FaceTimed every single day, with one visit in the middle of it all, just before a US citizenship test. By August, it was official.' },
+    { when: '2018–2019', text: 'Life took us in different directions for a while, but we never stopped caring for each other.' },
+    { when: 'November 2019', text: 'One phone call, and we were talking again like no time had passed.' },
+    { when: '2020, Chicago', text: 'At the end of a nervous flight, one of us was fast asleep, with a note, chocolate and a flower left waiting. Every nerve disappeared.', quote: 'It just felt like home.' },
+    { when: '2020, Columbia, SC', text: 'Another visit, and things started to feel certain.' },
+    { when: 'Summer 2021, New York', text: 'One summer together in the city, and we’ve been together ever since.' },
+  ],
+
   // Countdown target: the wedding ceremony.
   countdownTarget: '2027-08-27T16:00:00-04:00',
 
