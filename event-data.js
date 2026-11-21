@@ -24,14 +24,15 @@ window.WEDDING = {
   // Our story: one line per moment, shown as a gold timeline under the welcome note.
   // `quote` is optional and shows in italics after the text.
   story: [
-    { when: 'Fall 2016', text: 'We matched on Tinder. Our first date ended with Scoops ice cream, a movie, and a borrowed jacket because it was cold.' },
-    { when: 'Spring 2017', text: 'A chat about Migos tickets for the spring concert brought us back together, and we had our first real date over tacos at Uncle Jose’s.' },
-    { when: 'Summer 2017', text: 'Miles apart, we FaceTimed every single day, with one visit in the middle of it all, just before a US citizenship test. By August, it was official.' },
-    { when: '2018–2019', text: 'Life took us in different directions for a while, but we never stopped caring for each other.' },
-    { when: 'November 2019', text: 'One phone call, and we were talking again like no time had passed.' },
-    { when: '2020, Chicago', text: 'At the end of a nervous flight, one of us was fast asleep, with a note, chocolate and a flower left waiting. Every nerve disappeared.', quote: 'It just felt like home.' },
-    { when: '2020, Columbia, SC', text: 'Another visit, and things started to feel certain.' },
-    { when: 'Summer 2021, New York', text: 'One summer together in the city, and we’ve been together ever since.' },
+    { when: 'Fall 2016', text: 'It all started at a friend’s birthday party. A few laughs turned into a first date: Scoops ice cream, a movie, and a borrowed jacket because the night was chilly.' },
+    { when: 'Spring 2017', text: 'Migos tickets for the spring concert were the excuse. Tacos at Uncle Jose’s were the real first date.' },
+    { when: 'Summer 2017', text: 'Miles apart, we FaceTimed every single day. By August, it was official.' },
+    { when: '2018–2019', text: 'Life pulled us in different directions for a while, but our hearts always kept a little room for each other.' },
+    { when: 'November 2019', text: 'One phone call, and it felt like no time had passed at all.' },
+    { when: '2020, Chicago', text: 'After a nervous flight: a handwritten note, chocolate and a flower left waiting. Every nerve melted away.', quote: 'It just felt like home.' },
+    { when: '2020, Columbia, SC', text: 'Another trip, and “maybe” started sounding a lot like “yes.”' },
+    { when: 'Summer 2021, New York', text: 'One summer together in the city, and we haven’t looked back since.' },
+    { when: 'August 2027', text: 'And now we can’t wait to celebrate the next chapter with you.' },
   ],
 
   // Countdown target: the wedding ceremony.
