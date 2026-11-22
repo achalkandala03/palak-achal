@@ -24,15 +24,14 @@ window.WEDDING = {
   // Our story: one line per moment, shown as a gold timeline under the welcome note.
   // `quote` is optional and shows in italics after the text.
   story: [
-    { when: 'Fall 2016', text: 'It all started at a friend’s birthday party. A few laughs turned into a first date: Scoops ice cream, a movie, and a borrowed jacket because the night was chilly.' },
-    { when: 'Spring 2017', text: 'Migos tickets for the spring concert were the excuse. Tacos at Uncle Jose’s were the real first date.' },
-    { when: 'Summer 2017', text: 'Miles apart, we FaceTimed every single day. By August, it was official.' },
-    { when: '2018–2019', text: 'Life pulled us in different directions for a while, but our hearts always kept a little room for each other.' },
-    { when: 'November 2019', text: 'One phone call, and it felt like no time had passed at all.' },
-    { when: '2020, Chicago', text: 'After a nervous flight: a handwritten note, chocolate and a flower left waiting. Every nerve melted away.', quote: 'It just felt like home.' },
-    { when: '2020, Columbia, SC', text: 'Another trip, and “maybe” started sounding a lot like “yes.”' },
-    { when: 'Summer 2021, New York', text: 'One summer together in the city, and we haven’t looked back since.' },
-    { when: 'August 2027', text: 'And now we can’t wait to celebrate the next chapter with you.' },
+    { when: 'Fall 2016', text: 'Our story began at a friend’s birthday party, where we got to talking and didn’t want to stop. Soon after came our very first date: a scoop of ice cream at Scoops, a cozy movie night, and a borrowed jacket to keep out the autumn chill.' },
+    { when: 'Spring 2017', text: 'When spring concert season came around, a little excuse about Migos tickets brought us back together, and before long we were sharing tacos at Uncle Jose’s on what we still call our first real date.' },
+    { when: 'Summer 2017', text: 'That summer we were miles apart, but somehow it never felt that way. We FaceTimed every single day, and by the time August arrived, we were officially a couple.' },
+    { when: '2018–2019', text: 'For a little while, life gently led us down different paths. Even then, we always held a special place for each other in our hearts.' },
+    { when: 'November 2019', text: 'Then one evening, a simple phone call brought us back to each other, and it felt as though no time had passed at all.' },
+    { when: '2020, Chicago', text: 'A few months later, we met again in Chicago. After a nervous flight, a handwritten note, a little chocolate and a flower were waiting, and in that moment every worry simply melted away.', quote: 'It just felt like home.' },
+    { when: 'Summer 2021, New York', text: 'We spent a beautiful summer together in New York City, and from that summer on, we have been side by side ever since.' },
+    { when: 'August 2027', text: 'Now we are so excited to begin our next chapter, and we would love for you to be there to celebrate it with us.' },
   ],
 
   // Countdown target: the wedding ceremony.
