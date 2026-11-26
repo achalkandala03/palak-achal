@@ -12,11 +12,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Cormorant+SC:wght@500;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="art/door-left.webp">
   <link rel="preload" as="image" href="art/door-right.webp">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=21">
   <script>document.documentElement.classList.add('js', 'locked');</script>
 </head>
 <body>
 <main class="page">
+
+  <!-- menu bar: slides in once the invitation is open -->
+  <header class="topnav" id="topnav">
+    <a class="brand" href="#hero" aria-label="Back to the top"><span data-initial="first">P</span><span class="amp">&amp;</span><span data-initial="second">A</span></a>
+    <nav aria-label="Pages">
+      <a href="travel.html" data-keep-hash>Travel</a>
+      <a href="faq.html" data-keep-hash>FAQ</a>
+      <a class="pill" href="#rsvp">RSVP</a>
+    </nav>
+  </header>
 
   <!-- 1 + 2. Opening and hero -->
   <header class="hero" id="hero">
@@ -98,6 +108,16 @@
     <div class="actions reveal" id="hotel-actions"></div>
   </section>
 
+  <!-- 10b. Plan your trip: links to the Travel and FAQ pages -->
+  <section class="section" id="plan">
+    <p class="label reveal">Before you go</p>
+    <h2 class="reveal">Plan your trip</h2>
+    <nav class="glance plan-cards reveal" aria-label="More pages">
+      <a href="travel.html" data-keep-hash><span class="g-day">Travel &amp; stay</span><span class="g-title">Flights, hotel &amp; getting around</span><span class="g-go">Read more</span></a>
+      <a href="faq.html" data-keep-hash><span class="g-day">Questions</span><span class="g-title">Dress codes, RSVPs &amp; more</span><span class="g-go">Read more</span></a>
+    </nav>
+  </section>
+
   <!-- 11. RSVP -->
   <section class="section" id="rsvp">
     <img class="floral reveal" data-art="roses" src="art/floral-roses.webp" width="400" height="110" alt="A garland of dusty-rose roses">
@@ -161,11 +181,12 @@
     <img class="divider" data-art="divider" src="art/divider-pearls.webp" width="300" height="24" alt="">
     <p class="footer-names"><span data-bind="couple.first">Palak</span> <span class="amp">&amp;</span> <span data-bind="couple.second">Achal</span></p>
     <p class="label" data-bind="weddingDateLabel">August 27, 2027</p>
+    <p class="footer-links"><a href="travel.html" data-keep-hash>Travel &amp; stay</a> · <a href="faq.html" data-keep-hash>FAQ</a></p>
     <p class="footer-contact">Questions? <span id="contact">Contact details coming soon.</span></p>
   </footer>
 
 </main>
-<script src="event-data.js?v=13"></script>
-<script src="app.js?v=17"></script>
+<script src="event-data.js?v=15"></script>
+<script src="app.js?v=19"></script>
 </body>
 </html>

@@ -21,6 +21,9 @@ window.WEDDING = {
   },
   defaultInvite: 'celebrate-k4m8',
 
+  // Our story is written but switched off for now; set to true to show it under the welcome note.
+  showStory: false,
+
   // Our story: one line per moment, shown as a gold timeline under the welcome note.
   // `quote` is optional and shows in italics after the text.
   story: [
@@ -32,6 +35,85 @@ window.WEDDING = {
     { when: '2020, Chicago', text: 'A few months later, we met again in Chicago. After a nervous flight, a handwritten note, a little chocolate and a flower were waiting, and in that moment every worry simply melted away.', quote: 'It just felt like home.' },
     { when: 'Summer 2021, New York', text: 'We spent a beautiful summer together in New York City, and from that summer on, we have been side by side ever since.' },
     { when: 'August 2027', text: 'Now we are so excited to begin our next chapter, and we would love for you to be there to celebrate it with us.' },
+  ],
+
+  // ---------- Travel page (travel.html) ----------
+  // Any paragraph or question can carry ifDays (show only if the guest's link includes one of these days)
+  // and unlessDays (hide if it includes one of these). {deadline}, {hotel} and {contact} are filled in.
+  travel: {
+    intro: 'Everything you need to know about getting here, where to stay and finding your way around the weekend.',
+    // Times and prices are estimates (checked November 2026); Uber prices change with traffic and demand.
+    airportsNote: 'Times and prices are estimates and change with traffic and time of day. Check the Uber app or NJ Transit’s trip planner before you travel.',
+    airports: [
+      {
+        code: 'EWR', name: 'Newark Liberty International', city: 'Newark, New Jersey', pick: true,
+        why: 'Our top pick: it’s the closest airport to Envue, and you never have to cross into Manhattan.',
+        uber: { time: '25–35 min', cost: '$45–70' },
+        transit: {
+          time: 'About 1 hr 15 min', cost: 'About $20',
+          steps: [
+            'Take the AirTrain to Newark Airport rail station (a shuttle bus runs part of the way while the AirTrain is rebuilt).',
+            'Take an NJ Transit train to Secaucus Junction, then change for a train to Hoboken.',
+            'At Hoboken, take the Hudson-Bergen Light Rail toward Tonnelle Avenue to Port Imperial station, a short walk from Envue.',
+          ],
+        },
+        url: 'https://www.njtransit.com/EWR',
+      },
+      {
+        code: 'LGA', name: 'LaGuardia', city: 'Queens, New York',
+        uber: { time: '40–60 min', cost: '$70–100' },
+        transit: {
+          time: 'About 1 hr 15 min', cost: 'About $8',
+          steps: [
+            'Take the free Q70 LaGuardia Link bus to Jackson Heights–Roosevelt Avenue.',
+            'Take the E train to 42nd Street–Port Authority Bus Terminal.',
+            'Take NJ Transit bus 156 or 158 to Port Imperial, about 15 minutes, right outside Envue.',
+          ],
+        },
+      },
+      {
+        code: 'JFK', name: 'John F. Kennedy International', city: 'Queens, New York',
+        uber: { time: '60–90 min', cost: '$110–150' },
+        transit: {
+          time: 'About 1 hr 45 min', cost: 'About $16',
+          steps: [
+            'Take the AirTrain to Jamaica station.',
+            'Take the E train to 42nd Street–Port Authority Bus Terminal.',
+            'Take NJ Transit bus 156 or 158 to Port Imperial, about 15 minutes, right outside Envue.',
+          ],
+        },
+      },
+    ],
+    arrive: [
+      { ifDays: ['haldi'], text: 'The Haldi begins at 10:00 AM on Thursday, August 26, so we’d suggest arriving on Wednesday, August 25.' },
+      { ifDays: ['day1'], unlessDays: ['haldi'], text: 'Check-in at Envue opens at 4:00 PM on Thursday, August 26, and the Sangeet begins at 7:00 PM. Arriving that afternoon works well; if you’re travelling from far away, Wednesday gives you time to settle in.' },
+      { ifDays: ['day2'], unlessDays: ['haldi', 'day1'], text: 'The Baraat begins at 3:00 PM on Friday, August 27. We’d suggest arriving on Thursday so the wedding day can be unhurried.' },
+      { ifDays: ['day2'], text: 'The reception goes until 12:30 AM, so please plan for a late night on Friday.' },
+      { ifDays: ['day3'], text: 'Park Day is a relaxed, optional afternoon on Saturday, August 28 from 2:00 PM. If you can, stay on and head home on Sunday, August 29.' },
+      { ifDays: ['day2'], unlessDays: ['day3'], text: 'Heading home on Saturday, August 28 or later gives you a gentle morning after the celebrations.' },
+    ],
+    stay: 'We have a room block at Envue, Autograph Collection, on the Weehawken waterfront, with views across the Hudson to Midtown. The Sangeet is on its rooftop, so you’ll be right where the weekend begins.',
+    around: [
+      { text: 'Envue sits right beside the Port Imperial ferry terminal. NY Waterway ferries cross to Midtown Manhattan (West 39th Street) in about ten minutes, the most scenic way into the city.' },
+      { ifDays: ['day2'], text: 'The Rockleigh is about 30 to 40 minutes north of Envue by car. We’ll share transport details for the wedding day closer to the date.' },
+      { ifDays: ['day3'], text: 'For Park Day, take the ferry to Midtown and a short taxi ride to Sheep Meadow in Central Park. We’ll send the exact meeting spot nearer the time.' },
+    ],
+    help: 'Can’t find what you need, or have a question about travel or your stay? We’re happy to help.',
+  },
+
+  // ---------- FAQ page (faq.html) ----------
+  faq: [
+    { q: 'When should I RSVP by?', a: 'Please send your RSVP by {deadline}. It only takes a minute, and you can find the form at the bottom of the home page.' },
+    { q: 'Can I change my RSVP later?', a: 'Of course. Just send the form again using the same email address, and we’ll go with your newest answers. Changes are welcome until {deadline}.' },
+    { q: 'Can I bring a plus-one?', a: 'The RSVP form asks whether you’re bringing a plus-one and their name. Your plus-one joins you on each day you’re attending.' },
+    { q: 'What should I wear?', a: '{dresscodes}' },
+    { q: 'I’ve never been to an Indian wedding. What should I expect?', a: 'Lots of colour, music, food and dancing! Each celebration has its own feel: {expect} Come ready to celebrate, and don’t be shy about joining the dance floor.' },
+    { ifDays: ['day2'], q: 'What is the Baraat?', a: 'The Baraat is the groom’s joyful procession to the wedding, with a dhol drummer, music and plenty of dancing. Everyone is welcome to join in, so wear comfortable shoes and be there by 3:00 PM.' },
+    { ifDays: ['day3'], q: 'Do I need to come to Park Day?', a: 'Not at all. Park Day is a relaxed, optional afternoon in Central Park to unwind together after the wedding. Come if you can; we’ll understand if you need to head home.' },
+    { q: 'Where should I stay?', a: 'We have a room block at {hotel} in Weehawken, New Jersey. The booking link will be on the Travel page soon.' },
+    { q: 'Which airport should I fly into?', a: 'We recommend Newark Liberty International (EWR). It’s the closest to Envue, about 25 to 35 minutes by Uber. LaGuardia (LGA) and JFK work too, but the ride is longer and pricier because you cross Manhattan. The Travel page has Uber and public transport options for all three.' },
+    { q: 'Will any events be outdoors?', a: 'The Sangeet is on a rooftop and Park Day is on the lawn, so a light layer for the evening and comfortable shoes for the grass are a good idea. It’s late summer, so expect warm days.' },
+    { q: 'Who can I ask if I have a question?', a: '{contact}' },
   ],
 
   // Countdown target: the wedding ceremony.

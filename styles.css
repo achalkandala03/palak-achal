@@ -401,3 +401,111 @@ h2 {
 
 /* short phones: drop the small label so the names clear the top edge */
 @media (max-height: 700px) { .hero-label { display: none; } }
+
+/* ---------- Menu bar (home: slides in once the invitation is open; other pages: always there) ---------- */
+.topnav {
+  position: fixed; z-index: 30; top: 0; left: 50%;
+  width: min(100%, var(--col)); transform: translate(-50%, -110%);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: max(10px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 10px max(16px, env(safe-area-inset-left));
+  background: rgba(244, 238, 232, .94);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(184, 149, 90, .35);
+  transition: transform .6s ease;
+}
+html.opened .topnav { transform: translate(-50%, 0); }
+.topnav .brand { font: 400 26px/1 var(--serif); font-style: normal; text-decoration: none; white-space: nowrap; }
+.topnav .brand .amp { font-size: .8em; margin: 0 .06em; }
+.topnav nav { display: flex; align-items: center; gap: 4px; }
+.topnav nav a {
+  display: inline-flex; align-items: center; min-height: 40px; padding: 0 9px;
+  font: 600 13px/1 var(--caps); letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
+}
+.topnav nav a[aria-current] { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 7px; }
+.topnav nav a.pill { margin-left: 4px; padding: 0 14px; border: 1px solid var(--gold); border-radius: 22px; }
+.hero.skip *, .hero.skip { transition: none !important; animation: none !important; }
+
+/* plan-your-trip cards on the home page */
+.plan-cards { --n: 2; margin-top: 26px; }
+.plan-cards a { min-height: 150px; justify-content: center; }
+.glance .g-go { margin-top: 6px; font: 600 11px/1 var(--caps); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); }
+.footer-links { margin-top: 18px; font: 600 13px/1.6 var(--caps); letter-spacing: .18em; text-transform: uppercase; }
+.footer-links a { text-decoration-color: var(--gold); text-underline-offset: 5px; }
+
+/* ---------- Travel and FAQ pages ---------- */
+.sub .page { overflow: visible; min-height: 100vh; }
+.sub .topnav { position: sticky; left: auto; width: auto; transform: none; }
+.sub-grid { padding: 36px 24px 56px; display: grid; gap: 30px; }
+.sub-intro { text-align: left; }
+.sprig { width: 120px; margin: 0 0 14px; mix-blend-mode: multiply; }
+.eyebrow { font: 500 italic 21px/1.3 var(--serif); color: var(--sage-deep); }
+.sub h1 { margin: 6px 0 16px; font: 300 54px/1.02 var(--serif); font-style: normal; text-wrap: balance; }
+.lede { font-size: 21px; line-height: 1.45; max-width: 30ch; }
+.sub-scene { margin: 30px 0 26px; border-radius: 4px; border: 1px solid rgba(184,149,90,.5); }
+.sub-venue { margin-top: 4px; font: 500 28px/1.2 var(--serif); font-style: normal; }
+.sub-addr { font-size: 18px; }
+
+.sub-card {
+  background: #FBF8F4; border: 1px solid rgba(184,149,90,.35);
+  border-radius: 6px 6px 40px 6px; padding: 8px 22px 22px;
+  box-shadow: 0 10px 40px rgba(74, 68, 64, .08);
+  font-style: normal; font-size: 19px; line-height: 1.5;
+}
+.sub-card .block { padding: 26px 0; }
+.sub-card .block + .block { border-top: 1px solid rgba(184,149,90,.35); }
+.sub-card h2 { font: 400 30px/1.15 var(--serif); margin-bottom: 14px; }
+.sub-card p + p { margin-top: 10px; }
+.code-row { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.code { font: 500 58px/1 var(--serif); font-style: normal; letter-spacing: .02em; color: var(--sage-deep); padding-right: 16px; border-right: 1px solid rgba(184,149,90,.5); }
+.code-name { display: flex; flex-direction: column; font-size: 16px; line-height: 1.35; }
+.code-name strong { font-weight: 600; font-size: 17px; }
+.hotel { margin-top: 12px; }
+.hotel a { font-weight: 600; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+.soon { margin-top: 12px; font: 600 12px/1.4 var(--caps); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); }
+.sub-card .btn { margin-top: 14px; }
+.text-link { display: inline-block; margin-top: 12px; font: 600 13px/1.4 var(--caps); letter-spacing: .16em; text-transform: uppercase; text-decoration-color: var(--gold); text-underline-offset: 6px; }
+.help { margin-top: 6px; padding: 22px; background: var(--blush); border-radius: 6px; }
+.help h3 { font: 400 26px/1.2 var(--serif); font-style: normal; margin: 4px 0 8px; }
+.help-contact { margin-top: 10px; font-weight: 600; }
+.help-card { border-radius: 6px; background: var(--blush); }
+
+/* FAQ accordion */
+.faq details + details { border-top: 1px solid rgba(184,149,90,.35); }
+.faq summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 0; cursor: pointer; list-style: none;
+  font: 400 24px/1.25 var(--serif);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq .mark { position: relative; flex: none; width: 16px; height: 16px; }
+.faq .mark::before, .faq .mark::after { content: ''; position: absolute; left: 0; top: 7.5px; width: 16px; height: 1.5px; background: var(--ink); transition: transform .3s ease; }
+.faq .mark::after { transform: rotate(90deg); }
+.faq details[open] .mark::before { transform: rotate(45deg); }
+.faq details[open] .mark::after { transform: rotate(135deg); }
+.faq details p { padding: 0 32px 22px 0; }
+
+@media (min-width: 920px) {
+  .sub .page { max-width: 1160px; }
+  .sub-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: 72px; padding: 72px 64px 88px; align-items: start; }
+  .sub-intro { position: sticky; top: 110px; }
+  .sub h1 { font-size: 76px; }
+  .sub-card { padding: 10px 40px 34px; }
+  .help-card { grid-column: 2; }
+}
+
+/* jump targets clear the fixed menu bar */
+.section, .footer { scroll-margin-top: 64px; }
+.sub-intro { background: var(--cream); } /* lets the rose sprig blend on the sticky column */
+
+/* Travel: airports, recommended first */
+.airport + .airport { margin-top: 22px; padding-top: 22px; border-top: 1px dashed rgba(184,149,90,.45); }
+.airport:not(.pick) .code { font-size: 40px; }
+.pick-tag { align-self: flex-start; margin-bottom: 4px; padding: 3px 10px 4px; border-radius: 20px; background: var(--sage-deep); color: #fff; font: 600 11px/1.2 var(--caps); letter-spacing: .16em; text-transform: uppercase; }
+.why { margin-bottom: 4px; }
+.ways { display: grid; gap: 12px; margin-top: 12px; }
+.way { padding: 12px 14px; background: var(--cream); border-radius: 6px; }
+.way-name { font: 600 12px/1.3 var(--caps); letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); }
+.way-meta { margin-top: 2px; font: 500 21px/1.3 var(--serif); }
+.steps { margin: 8px 0 0; padding-left: 20px; font-size: 17px; line-height: 1.45; }
+.steps li + li { margin-top: 4px; }
+.fineprint { margin-top: 18px; font-size: 15px; font-style: italic; line-height: 1.4; }

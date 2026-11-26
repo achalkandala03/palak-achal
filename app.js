@@ -61,7 +61,7 @@
   });
 
   // ---------- our story ----------
-  $('#story').hidden = !(W.story && W.story.length);
+  $('#story').hidden = !(W.showStory && W.story && W.story.length);
   $('#story-list').innerHTML = (W.story || []).map((m) =>
     `<li class="reveal"><p class="when">${esc(m.when)}</p><p class="what">${esc(m.text)}` +
     `${m.quote ? ` <em>“${esc(m.quote)}”</em>` : ''}</p></li>`).join('');
@@ -231,21 +231,39 @@
   let opened = false;
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
+  // ?go=rsvp (from the Travel and FAQ pages) jumps to that section once the page is open
+  const goTo = new URLSearchParams(location.search).get('go');
+  const store = (k, v) => { try { return v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch (e) { return null; } };
+  function finish() {
+    hero.classList.add('done');
+    root.classList.remove('locked');
+    root.classList.add('opened'); // shows the menu bar
+    store('opened', '1');
+    const id = goTo || (location.hash && location.hash.slice(1));
+    // wait until the rest of the page (days, RSVP form) is built before jumping
+    setTimeout(() => {
+      const t = id && id !== 'hero' && document.getElementById(id);
+      if (t) t.scrollIntoView({ behavior: 'auto' });
+    }, 60);
+  }
   function openDoors() {
     if (opened) return;
     opened = true;
     hero.classList.add('open');
-    setTimeout(() => {
-      hero.classList.add('done');
-      root.classList.remove('locked');
-      if (location.hash && location.hash !== '#hero') {
-        const t = document.getElementById(location.hash.slice(1));
-        if (t) t.scrollIntoView();
-      }
-    }, reduceMotion ? 1800 : 4000);
+    setTimeout(finish, reduceMotion ? 1800 : 4000);
   }
-  $('#doors').addEventListener('click', openDoors);
-  setTimeout(openDoors, 4500); // open on their own if nobody taps
+  if (store('opened')) {
+    // already watched the opening this visit (e.g. back from the Travel page): skip it
+    opened = true;
+    hero.classList.add('open', 'skip');
+    finish();
+  } else {
+    $('#doors').addEventListener('click', openDoors);
+    setTimeout(openDoors, 4500); // open on their own if nobody taps
+  }
+
+  // links to the other pages carry the invite code along
+  $$('a[data-keep-hash]').forEach((a) => { a.href = a.getAttribute('href') + location.hash; });
 
   // ---------- countdown ----------
   const target = new Date(W.countdownTarget);
